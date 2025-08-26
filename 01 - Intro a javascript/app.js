@@ -1,36 +1,12 @@
-var a = 5.5                     //  number
-console.log(a);
-
-a = "Hola"                      //  cadenas (strings)
-console.log(a);
-
-a = 'a'                         // Caracter
-console.log(a);
-
-a = function name(params) {     // función
-    
+//  Estilo Java
+function square(x) {
+    return x * x;
 }
-console.log(a);
 
-a = undefined                   // undefine
-console.log(a);
+//  Estilo script
+var cube = function(x) {
+    return x * x * x;
+}
 
-a = null                        // null
-console.log(a);
-
-a = {}                          //  Objetos
-console.log(a);
-
-a = []
-console.log(a);                 // Arreglos
-
-a = true
-console.log(a);                 // Boleanos
-
-
-
-
-
-
-
-
+console.log( square(5) );
+console.log( cube(5) );
