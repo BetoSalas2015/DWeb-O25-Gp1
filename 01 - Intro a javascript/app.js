@@ -1,12 +1,9 @@
-//  Estilo Java
-function square(x) {
-    return x * x;
+function saludo(mensaje) {
+    return function(nombre) {
+        console.log(mensaje + " " + nombre);
+    }
 }
 
-//  Estilo script
-var cube = function(x) {
-    return x * x * x;
-}
+var hola = saludo("Hola")
+hola("alumnos")
 
-console.log( square(5) );
-console.log( cube(5) );
