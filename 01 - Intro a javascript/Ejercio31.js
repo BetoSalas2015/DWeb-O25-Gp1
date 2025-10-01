@@ -28,14 +28,12 @@ const salarios = [
 
 const getEmpleado = function( id ) {
     const promesa = new Promise( (resolve, reject) => {
-        setTimeout( () => {
-            const empleado = empleados.find( e => e.id === id )?.nombre
+        const empleado = empleados.find( e => e.id === id )?.nombre
         if (empleado) {
             resolve(empleado);
         } else {
             reject(`El empleado con ID ${id} no existe`)
         }
-        }, 5000);
     } );
     return promesa;
 }
@@ -50,18 +48,21 @@ const getSalario = function(id) {
 
 let id = 4
 
-//getEmpleado(id).then((empleado) => {console.log(empleado); }).catch((err) => { console.log(err);
-//});
-
-
-const getInfoUsuario = async(id) => {78
-    
+const getInfoUsuario = async(id) => {
     const empleado = await getEmpleado(id);
     const salario =  await getSalario(id);
     return `El empleado ${empleado} tiene un salario de ${salario}.`;
 };
 
-console.log("Iniciando la búasqueda");
+getEmpleado(id)
+    .then((empleado) => {
+        const emp = empleado;
+        return getSalario(id)
+            .then((salario) => {
+                console.log(`El empleado ${empleado} tiene el salario ${salario}`);
+            });
+    })
+    .catch((err) => { console.log(err)});
+
 getInfoUsuario(id).then((msg) => { console.log(msg)})
                 .catch((err) => { console.log(err)});
-console.log("terminando la busqueda");
