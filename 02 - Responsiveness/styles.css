@@ -1,10 +1,16 @@
+* {
+    margin: 0px;
+}
+
 #container {
-    width: 1000px;
+    width: 90%;
     background: red;
     margin: 0px auto;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 40px;
     margin-bottom: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header {
@@ -49,4 +55,55 @@ aside {
     content: "";
     display: table;
     clear: both;
+}
+
+/* Estilos responsivos */
+/* Desde 504px hasta 604px aplica este formato */
+@media screen and (min-width: 504px) and( max-width: 604px) {
+    #articles article {
+        width: 40%;
+        background: goldenrod;
+    }
+}
+
+/* Desde 0px hasta 503px aplica este formato */
+@media screen and ( max-width: 503px) {
+    #articles article {
+        width: 90%;
+        background: rebeccapurple;
+    }
+}
+
+/* * Diseño móvil */
+@media screen and (min-width: 321px) and (max-width: 480px) {
+    aside {
+        float: none;
+        min-height: auto;
+        line-height: 20px;
+        width: 90%;
+        padding: 20px;
+    }
+
+    #container {
+        overflow: hidden;
+    }
+
+    #articles {
+        width: 100%;
+    }
+
+    #articles article {
+        margin: 5%;
+    }
+}
+
+
+/* Se aplica cuando el ancho está entre 768px y 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Estilos para tablets */
+}
+
+/* Se aplica cuando la orientación es horizontal o el ancho es mayor a 1200px */
+@media (orientation: landscape), (min-width: 1200px) {
+  /* Estilos para pantallas amplias */
 }
