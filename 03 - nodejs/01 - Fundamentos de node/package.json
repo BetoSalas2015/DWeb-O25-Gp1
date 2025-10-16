@@ -1,0 +1,24 @@
+{
+  "name": "basesnode",
+  "version": "1.0.0",
+  "description": "Proyecto Nodejs de tablas multiplicar",
+  "keywords": [
+    "javascript",
+    "nodejs"
+  ],
+  "license": "ISC",
+  "author": "Roberto Salazar",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "base9": "node app.js --base=9"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "yargs": "^17.7.2"
+  }
+}

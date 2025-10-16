@@ -1,22 +1,26 @@
-const fs = require('node:fs')
+const { crearArchivo } = require("./modulos/multiplicar")
+const argv = require("yargs")
+            .option('b', {
+                alias: 'base',
+                demandOption: true,
+                default: 5,
+                description: 'Base de la tabla a multiplicar',
+                type: 'number'
 
-console.clear()
+            }).argv
 
-let base = 7
-let salida = ""
-
-console.log("============================");
-console.log(`     Tabla del ${base}      `);
-console.log("============================");
+//console.clear()
 
 
-for (let i = 1 ; i <= 10; i++) {
-    salida += `${base} * ${i} = ${base * i}\n`
-}
 
-fs.writeFile(`Tabla-${base}.txt`, salida, (err) => {
-    if(err) throw err;
-    console.log(`Archivo Tabla-5-txt creado.`);
-    
-})
-console.log(salida);
+
+
+/*
+//const arg3 = process.argv[2]
+const [,,arg3] = process.argv;
+const [,base = 5] = arg3.split('=')
+
+
+crearArchivo(base).then( (nombreArchivo) => { console.log(`Archivo ${nombreArchivo} creado.`);})
+                   .catch( (err) => { console.log(err); });
+                   */
