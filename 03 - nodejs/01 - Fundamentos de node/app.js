@@ -1,26 +1,10 @@
-const { crearArchivo } = require("./modulos/multiplicar")
-const argv = require("yargs")
-            .option('b', {
-                alias: 'base',
-                demandOption: true,
-                default: 5,
-                description: 'Base de la tabla a multiplicar',
-                type: 'number'
+import { crearArchivo } from "./modulos/multiplicar.js"
+import { argv } from "./modulos/yargs.js"
 
-            }).argv
-
-//console.clear()
-
-
-
-
-
-/*
-//const arg3 = process.argv[2]
-const [,,arg3] = process.argv;
-const [,base = 5] = arg3.split('=')
-
-
+console.clear()
+console.log(argv);
+const base = argv.base;
+                
 crearArchivo(base).then( (nombreArchivo) => { console.log(`Archivo ${nombreArchivo} creado.`);})
                    .catch( (err) => { console.log(err); });
-                   */
+                   
