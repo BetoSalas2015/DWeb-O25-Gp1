@@ -53,3 +53,19 @@ export const pausa = async () => {
         message: `Presione ${colors.default.yellow('<<ENTER>>')} para continuar`
     }]);
 };
+
+export const capturaEntrada = async (message) => {
+    const respuesta = await inquirer.prompt([{
+        type: 'input',
+        name: 'resp',
+        message,
+        validate: (entrada) => {
+            if (entrada.length === 0 ) {
+                return 'Èntrada inválida. Reintente'
+            } else {
+                return true;
+            }
+        }
+    }]);
+    return respuesta.resp;
+};
