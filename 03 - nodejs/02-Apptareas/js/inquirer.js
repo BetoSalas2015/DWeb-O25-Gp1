@@ -69,3 +69,5 @@ export const capturaEntrada = async (message) => {
     }]);
     return respuesta.resp;
 };
+
+export const listadoTareasBorrar = async (listado = []) => {}
