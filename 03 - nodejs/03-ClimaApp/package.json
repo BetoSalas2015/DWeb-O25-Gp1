@@ -1,10 +1,11 @@
 {
-  "name": "apptareas",
-  "version": "1.0.0",
-  "description": "Aplicación de consola interactiva de tareas (to-do)",
+  "name": "climaapp",
+  "version": "0.1.0",
+  "description": "Aplicación node de clima",
   "keywords": [
     "nodejs",
-    "javascript"
+    "javascript",
+    "rest"
   ],
   "license": "ISC",
   "author": "Roberto Salazar Márquez",
@@ -15,7 +16,6 @@
   },
   "dependencies": {
     "colors": "^1.4.0",
-    "inquirer": "^12.10.0",
-    "uuid": "^13.0.0"
+    "inquirer": "^12.11.1"
   }
 }

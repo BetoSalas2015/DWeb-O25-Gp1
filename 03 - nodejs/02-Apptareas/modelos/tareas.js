@@ -72,6 +72,19 @@ export class Tareas {
         }
     };
 
+    cambiarTareas = (ids = []) => {
+        ids.forEach((id) => {
+            const tarea = this.listado[id];
+            if(!tarea.completado) {
+                tarea.completado = new Date().toISOString() 
+            }
+            this.listadoArr.forEach((tarea) => {
+                if(!ids.includes(tarea.id)) {
+                    this.listado[tarea.id].completado = null;
+                }
+            })
+        })
+    };
 
 }
 

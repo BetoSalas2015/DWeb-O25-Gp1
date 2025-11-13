@@ -1,0 +1,67 @@
+import inquirer  from "inquirer";
+const colors = await import('colors')
+
+const menu = [{
+    type: 'list',
+    name: 'menuOpt',
+    message: 'Seleccione una opción',
+    choices: [
+        {
+            value: 1,
+            name: `1. Buscar ciudad.`
+        },
+        {
+            value: 2,
+            name: `2. Historial`
+        },
+        {
+            value: 0,
+            name: '0. Salir'
+        }
+    ]
+}];
+
+export const inquirerMenu = async () => {
+    console.clear();
+    console.log(colors.default.green(`===================================`));
+    console.log(colors.default.green(`=      Seleccione una opción      =`));
+    console.log(colors.default.green(`===================================`));
+
+    const { menuOpt } = await inquirer.prompt(menu);
+    return menuOpt;
+};
+
+export const pausa = async () => {
+    await inquirer.prompt([{
+        type: 'input',
+        name: 'pausaOpt',
+        message: `Presione ${colors.default.yellow('<<ENTER>>')} para continuar`
+    }]);
+};
+
+export const capturaEntrada = async (message) => {
+    const respuesta = await inquirer.prompt([{
+        type: 'input',
+        name: 'resp',
+        message,
+        validate: (entrada) => {
+            if (entrada.length === 0 ) {
+                return 'Èntrada inválida. Reintente'
+            } else {
+                return true;
+            }
+        }
+    }]);
+    return respuesta.resp;
+};
+
+export const confirmar = async (message) => {
+    const { ok } = await inquirer.prompt([{
+        type: 'confirm',
+        name: 'ok',
+        message
+    }]);
+    return ok;
+};
+
+
