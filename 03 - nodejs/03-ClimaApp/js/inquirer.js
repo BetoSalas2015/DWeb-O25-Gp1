@@ -22,7 +22,7 @@ const menu = [{
 }];
 
 export const inquirerMenu = async () => {
-    console.clear();
+    //console.clear();
     console.log(colors.default.green(`===================================`));
     console.log(colors.default.green(`=      Seleccione una opción      =`));
     console.log(colors.default.green(`===================================`));
@@ -64,4 +64,24 @@ export const confirmar = async (message) => {
     return ok;
 };
 
-
+export const listadoCiudades = async (listado = []) => {
+    let cont = 0;
+    const choices = listado.map( (ciudad) => {
+        cont++;
+        return {
+            value: ciudad.id,
+            name: `${colors.default.green(cont.toString() + ".")} ${colors.default.gray(ciudad.lugar)}`
+        }
+    } );
+    choices.unshift({
+        value: 0,
+        name: `${colors.default.green('0.')} ${colors.default.yellow('Cancelar')}`
+    });
+    const respuesta = await inquirer.prompt([{
+        type: 'list',
+        name: 'resp', 
+        message: 'Seleccione la ciudad',
+        choices
+    }])
+    return respuesta.resp;
+}
